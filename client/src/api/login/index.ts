@@ -6,22 +6,24 @@ interface Param {
   password: string
 }
 
-export default async function(param: Param) {
+const login = async (param: Param) => {
   try {
     let { username, password } = param
-    username = String(CryptoJS.AES.encrypt(username, import.meta.env.SECRET_KEY))
-    password = String(CryptoJS.AES.encrypt(password, import.meta.env.SECRET_KEY))
+    password = String(CryptoJS.AES.encrypt(password, import.meta.env.VITE_SECRET_KEY))
     const value = await useFetch({
-      url: '/api/v1/login',
+      url: '/login',
       method: 'POST',
       body: {
         username: username,
         password: password
-      }
+      },
+      login: true
     })
     if(value)
       return value
   } catch(e) {
-
+    console.log(e)
   }
 }
+
+export default login

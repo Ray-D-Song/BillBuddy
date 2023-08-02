@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/crypto-js": "^4.1.1",
+    "@types/jsonwebtoken": "^9.0.2",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "crypto-js": "^4.1.1",
     "vue": "^3.3.4",
