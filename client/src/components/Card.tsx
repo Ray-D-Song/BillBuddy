@@ -7,9 +7,10 @@ export default defineComponent({
   },
   setup(props) {
     const amountColor = computed(() => {
-      if(props.usedAmount)
-        return props.usedAmount>=40?'text-red-400':'text-green-500'
+      if(props.usedAmount&&props.quota)
+        return props.usedAmount>=props.quota?'text-red-400':'text-green-500'
     })
+
     return () => (
       <div class="bg-gray-900 rounded-xl w-4/5 h-40">
         <div class="text-lg opacity-70 p-4">

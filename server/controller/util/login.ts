@@ -18,9 +18,7 @@ const login = Router().post('/login', async (req, res) => {
     })
     const bytes = CryptoJS.AES.decrypt(password, process.env.SECRET_KEY as string)
     const decryptedData = bytes.toString(CryptoJS.enc.Utf8)
-    console.log(decryptedData)
     if(val?.password === decryptedData) {
-      console.log('1')
       jwt.sign(
         {username},
         process.env.SECRET_KEY as string,
